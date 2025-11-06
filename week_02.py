@@ -180,7 +180,6 @@ Convierte 0 < temp < 100 en su forma con and.'''
 temp = 50
 is_temp_valid = 0 < temp and temp < 100
 print("Is temperature between 0 and 100?", is_temp_valid)
-
 # endregion
 
 # region Conditionals ------------------------
@@ -255,7 +254,6 @@ else:
         print("The number is odd and positive.")
     else:
         print("The number is odd and negative.")    
-
 # endregion
 
 # region Ternary operators ------------------------
@@ -289,7 +287,6 @@ si es ≥ 60, y "Reprobado" en otro caso (usando un ternario anidado).'''
 grade_input_5 = 85
 result = "Excellent" if grade_input_5 >= 90 else "Approved" if grade_input_5 >= 60 else "Failed"
 print(result)
-
 # endregion
 
 # region for/while ------------------------
@@ -332,7 +329,6 @@ Crea un programa que pida una contraseña al usuario y solo termine cuando escri
 # while password != "python":
 #     password = input("Introduce la contraseña: ")
 # print("Contraseña correcta.")
-
 # endregion
 
 # region range ------------------------
@@ -371,7 +367,6 @@ greetings = []
 for _ in range(4):
     greetings.append("Hola")
 print(greetings)
-
 # endregion
 
 # region Break, continue, pass ------------------------
@@ -416,7 +411,6 @@ for i in range(11):
         break
     filtered_array.append(i)
 print(filtered_array)
-
 # endregion
 
 # region For/else ------------------------
@@ -459,7 +453,6 @@ for i in range(1, 6):
     for_range_array.append(i)
 else:
     print("Todo se recorrió sin encontrar el 6.")
-
 # endregion
 
 # region Infinity loops ------------------------
@@ -482,7 +475,6 @@ Haz un ciclo while True que pida al usuario escribir "ok" para terminar.'''
 #         break
 # print("Programa terminado.")
 
-
 '''Ejercicios 3
 Corrige el siguiente código para que no sea un ciclo infinito:
 x = 1
@@ -495,11 +487,9 @@ while x < 5:
     count_array_2.append(x)
     x += 1
 print(count_array_2)    
-
 # endregion
 
 # region Nested loops ------------------------
-
 '''Ejercicio 1
 Crea un doble for que imprima las combinaciones de i de 0 a 2 y j de 0 a 1.'''        
 for i in range(3):
@@ -525,5 +515,4 @@ for i in range(1, 4):
     for j in range(1, 4):
         print(i * j, end="\t")
     print()
-
 # endregion
