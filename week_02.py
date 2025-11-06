@@ -257,3 +257,273 @@ else:
         print("The number is odd and negative.")    
 
 # endregion
+
+# region Ternary operators ------------------------
+'''Ejercicio 1
+Pide un número e imprime "Positivo" si es mayor a 0, o "No positivo" en otro caso.'''
+number_input_3 = -10
+result = "Positive" if number_input_3 > 0 else "Not positive"
+print(result)
+
+'''Ejercicio 2
+Pide la edad e imprime "Mayor de edad" si es ≥ 18, de lo contrario "Menor de edad".'''
+age_input_2 = 16
+status = "Adult" if age_input_2 >= 18 else "Minor"
+print(status)
+
+'''Ejercicio 3
+Pide un número e imprime "Par" si lo es, de lo contrario "Impar".'''
+number_input_4 = 5
+paridad = "Even" if number_input_4 % 2 == 0 else "Odd"
+print(paridad)
+
+'''Ejercicio 4
+Dada una variable es_admin = False, imprime "Acceso permitido" si es True, de lo contrario "Acceso denegado".'''
+is_admin = False
+access_message = "Access granted" if is_admin else "Access denied"
+print(access_message)
+
+'''Ejercicio 5
+Pide una calificación (0–100). Imprime "Excelente" si es ≥ 90, "Aprobado" 
+si es ≥ 60, y "Reprobado" en otro caso (usando un ternario anidado).'''
+grade_input_5 = 85
+result = "Excellent" if grade_input_5 >= 90 else "Approved" if grade_input_5 >= 60 else "Failed"
+print(result)
+
+# endregion
+
+# region for/while ------------------------
+'''Ejercicio 1
+Muestra cada letra de la palabra "Python" usando un for.'''
+word = ""
+for letter in "Python":
+    word += letter
+print(word)
+
+'''Ejercicio 2
+Muestra los números del 1 al 5 usando while.'''
+count = 1
+count_array = []
+while count <= 5:
+    count_array.append(count)
+    count += 1
+print(count_array)
+
+'''Ejercicio 3
+Usa un for para contar cuántas vocales tiene la palabra "programa".'''
+vowel_count = 0
+for char in "programa":
+    if char.lower() in "aeiou":
+        vowel_count += 1
+print("Number of vowels in 'programa':", vowel_count)     
+
+'''Ejercicio 4
+Usa while para sumar los números del 1 al 3 y mostrar el resultado.'''
+total = 0
+num = 1
+while num <= 3:
+    total += num
+    num += 1
+print("Total sum:", total)
+
+'''Ejercicio 5
+Crea un programa que pida una contraseña al usuario y solo termine cuando escriba "python".'''
+# password = ""
+# while password != "python":
+#     password = input("Introduce la contraseña: ")
+# print("Contraseña correcta.")
+
+# endregion
+
+# region range ------------------------
+
+'''Ejercicio 1
+Imprime los números del 0 al 9 con range().'''
+int_array = []
+for i in range(10):
+    int_array.append(i)
+print(int_array)
+
+'''Ejercicio 2
+Imprime los números del 3 al 7.'''    
+int_array_2 = []
+for i in range(3, 8):
+    int_array_2.append(i)
+print(int_array_2)
+
+'''Ejercicio 3
+Imprime los números pares entre 2 y 10.'''
+int_array_3 = []
+for i in range(2, 11, 2):
+    int_array_3.append(i)
+print(int_array_3)
+
+'''Ejercicio 4
+Haz un conteo regresivo del 5 al 1.'''
+countdown = []
+for i in range(5, 0, -1):
+    countdown.append(i)
+print(countdown)
+
+'''Ejercicio 5
+Muestra la palabra "Hola" 4 veces usando range().'''
+greetings = []
+for _ in range(4):
+    greetings.append("Hola")
+print(greetings)
+
+# endregion
+
+# region Break, continue, pass ------------------------
+'''Ejercicio 1
+Usa un for de 1 a 10 e imprime los números, pero detente cuando llegues al 6.'''
+break_array = []
+for i in range(1, 11):
+    if i == 6:
+        break
+    break_array.append(i)
+print(break_array)
+
+'''Ejercicio 2
+Usa un for de 0 a 5 e imprime todos los números excepto el 3'''
+continue_array = []
+for i in range(6):
+    if i == 3:
+        continue
+    continue_array.append(i)
+print(continue_array)
+
+'''Ejercicio 3
+Escribe un for de 0 a 4 donde, si el número es 2, no hagas nada (usa pass), pero imprime los demás.'''
+pass_array = []
+for i in range(5):
+    if i == 2:
+        pass
+    pass_array.append(i)
+print(pass_array)
+
+'''Ejercicio 4
+Usa un for de 0 a 10:
+
+Si el número es par, sáltalo con continue.
+Si el número es mayor que 7, rompe el ciclo.
+Muestra solo los impares menores o iguales a 7.'''
+filtered_array = []
+for i in range(11):
+    if i % 2 == 0:
+        continue
+    if i > 7:
+        break
+    filtered_array.append(i)
+print(filtered_array)
+
+# endregion
+
+# region For/else ------------------------
+'''Ejercicio 1
+Crea un for que recorra los números del 0 al 4.
+
+Si aparece el número 3, usa break.
+Agrega un else que diga "Ciclo completado sin interrupciones".'''
+for_else_array = []
+for i in range(5):
+    if i == 3:
+        break
+    for_else_array.append(i)
+else:
+    print("Ciclo completado sin interrupciones.")
+
+print(for_else_array)    
+
+'''Ejercicio 2
+Busca la letra "a" en el string "python".
+
+Si se encuentra, imprime "Encontrada".
+Si no, imprime "No encontrada".'''
+for char in "python":
+    if char == "a":
+        print("Encontrada")
+        break
+else:
+    print("No encontrada")
+
+'''Ejercicio 3
+Recorre los números del 1 al 5.
+
+Si aparece el 6, usa break (no debería aparecer).
+Si no aparece, al final imprime "Todo se recorrió sin encontrar el 6".'''
+for_range_array = []
+for i in range(1, 6):
+    if i == 6:
+        break
+    for_range_array.append(i)
+else:
+    print("Todo se recorrió sin encontrar el 6.")
+
+# endregion
+
+# region Infinity loops ------------------------
+'''Ejercicios 1
+Crea un ciclo while que cuente de 1 a 5 y se detenga correctamente.'''
+count = 1
+count_array = []
+while True:
+    count_array.append(count)
+    if count == 5:
+        break
+    count += 1
+print(count_array)
+
+'''Ejercicios 2
+Haz un ciclo while True que pida al usuario escribir "ok" para terminar.'''
+# while True:
+#     user_input = input("Escribe 'ok' para terminar: ")
+#     if user_input == "ok":
+#         break
+# print("Programa terminado.")
+
+
+'''Ejercicios 3
+Corrige el siguiente código para que no sea un ciclo infinito:
+x = 1
+while x < 5:
+    print(x)
+'''
+count_array_2 = []
+x = 1
+while x < 5:
+    count_array_2.append(x)
+    x += 1
+print(count_array_2)    
+
+# endregion
+
+# region Nested loops ------------------------
+
+'''Ejercicio 1
+Crea un doble for que imprima las combinaciones de i de 0 a 2 y j de 0 a 1.'''        
+for i in range(3):
+    for j in range(2):
+        print(i, j)
+
+'''Ejercicio 2
+Usa un ciclo anidado para dibujar un cuadrado de # de 4x4.'''        
+for i in range(4):
+    for j in range(4):
+        print("#", end=" ")
+    print()
+
+'''Ejercicio 3
+Con un for dentro de otro, imprime todas las combinaciones de letras en "ab" y números en "12".'''
+for letter in "ab":
+    for number in "12":
+        print(letter + number)   
+
+'''Ejercicio 4
+Crea un bucle anidado que simule una tabla de multiplicar del 1 al 3.'''        
+for i in range(1, 4):
+    for j in range(1, 4):
+        print(i * j, end="\t")
+    print()
+
+# endregion
