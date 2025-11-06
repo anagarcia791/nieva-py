@@ -332,7 +332,6 @@ Crea un programa que pida una contraseña al usuario y solo termine cuando escri
 # endregion
 
 # region range ------------------------
-
 '''Ejercicio 1
 Imprime los números del 0 al 9 con range().'''
 int_array = []
