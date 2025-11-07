@@ -94,12 +94,11 @@ Dada lista = [1,2,2,3,2,4]:
 Verifica si el número 2 está en la lista.
 Cuenta cuántas veces aparece el número 2 usando un for.
 Crea otra lista [2,1,2,3,2,4] y compárala con lista usando ==.'''
-
-list = [1, 2, 2, 3, 2, 4]
-print(2 in list)  # Check if 2 is in the list
-print("2 appears", list.count(2))  # Print how many times 2 appears
+lista = [1, 2, 2, 3, 2, 4]
+print(2 in lista)  # Check if 2 is in the list
+print("2 appears", lista.count(2))  # Print how many times 2 appears
 another_list = [2, 1, 2, 3, 2, 4]
-print(list == another_list)  # Compare the two lists
+print(lista == another_list)  # Compare the two lists
 # endregion
 
 # region Lists Methods ------------------------
@@ -501,4 +500,108 @@ n = {"html", "css"}
 print("m y n son disjuntos:", m.isdisjoint(n), "should be True, due m and n have no elements in common")
 p = {"js", "go"}
 print("m y p son disjuntos:", m.isdisjoint(p), "should be False, due m and p share 'js'")
+# endregion
+
+
+# region Tuples ------------------------
+'''Ejercicio 1
+Crea una tupla con tres colores y muestra el primer y último elemento.'''
+colores = ("rojo", "verde", "azul")
+print("first color:", colores[0])
+print("last color:", colores[-1])
+
+'''Ejercicio 2
+Crea una tupla con los números del 1 al 5. Usa slicing para mostrar del 2 al 4.'''
+numeros = (1, 2, 3, 4, 5)
+print("from 2 to 4:", numeros[1:4])
+
+'''Ejercicio 3
+Crea una tupla con un solo número (ejemplo: 7).
+Imprime el tipo de dato y verifica que sea tuple.'''
+numero_unico = (7,)
+print("data type:", type(numero_unico))
+print("¿is a tuple?", isinstance(numero_unico, tuple))
+
+'''Ejercicio 4
+Concatena dos tuplas: (10, 20) y (30, 40) en una nueva tupla.
+Repite la tupla resultante 2 veces.'''
+tupla1 = (10, 20)
+tupla2 = (30, 40)
+tupla_concatenada = tupla1 + tupla2
+tupla_repetida = tupla_concatenada * 2
+print("Concatenated tuple:", tupla_concatenada)
+print("Repeated tuple:", tupla_repetida)
+
+'''Ejercicio 5
+Dada la tupla t = (5, 10, 15, 20, 25), usa slicing para mostrarla invertida.'''
+t = (5, 10, 15, 20, 25)
+print("Inverted tuple:", t[::-1])
+
+'''Ejercicio 6
+Haz unpacking de la tupla fecha = (2025, 8, 28) en variables year, month, day e imprímelas en un mensaje.'''
+fecha = (2025, 8, 28)
+year, month, day = fecha
+print(f"date: {month}/{day}//{year}")
+
+'''Ejercicio 7
+Crea una tupla anidada t = ("Ana", (10, 20, 30), "Fin").
+Muestra el número 20 accediendo correctamente a los índices.'''
+t = ("Ana", (10, 20, 30), "Fin")
+print("num 20:", t[1][1])
+
+'''Ejercicio 8
+Crea una tupla (1, [2,3], 4).
+Agrega el número 99 a la lista interna y muestra el resultado.'''
+t = (1, [2, 3], 4)
+t[1].append(99)
+print("result:", t)
+
+'''Ejercicio 9
+Crea una tupla con coordenadas (19.43, -99.13).
+Úsala como clave en un diccionario para almacenar "CDMX".'''
+coordenadas = (19.43, -99.13)
+ciudades = {coordenadas: "CDMX"}
+print("city:", ciudades)
+# endregion
+
+# region Functions for collections ------------------------
+'''Ejercicio 1
+Crea una lista con cinco nombres de animales.
+Muestra cuántos elementos tiene usando len().'''
+animales = ["perro", "gato", "pez", "loro", "tortuga"]
+print("cuantity of animals:", len(animales))
+
+'''Ejercicio 2
+Crea una lista con los números del 1 al 10.
+Usa sum() para obtener la suma total.'''
+numeros = list(range(1, 11))
+print("total:", sum(numeros))
+
+'''Ejercicio 3
+Dada la tupla t = (5, 17, 3, 9, 21), muestra el valor mínimo y el máximo.'''
+t = (5, 17, 3, 9, 21)
+print("min value:", min(t))
+print("max value:", max(t))
+
+'''Ejercicio 4
+Dada la lista puntos = [40, 10, 70, 20], ordénala de menor a mayor y también de mayor a menor.'''
+puntos = [40, 10, 70, 20]
+print("sorted from least to greatest:", sorted(puntos))
+print("sorted from greatest to least:", sorted(puntos, reverse=True))
+
+'''Ejercicio 5
+Dada la cadena texto = "python", crea una lista con sus letras en orden inverso.'''
+texto = "python"
+lista_letras = list(reversed(texto))
+print("list reversed:", lista_letras)
+
+'''Ejercicio 6
+Dado el set valores = {0, "", None, 15}, usa any() para verificar si hay al menos un valor verdadero.'''
+valores = {0, "", None, 15}
+print("any true value:", any(valores))
+
+'''Ejercicio 7
+Dado el diccionario checks = {"a": 1, "b": True, "c": "ok"}, aplica all() sobre checks.values() y explica el resultado.'''
+checks = {"a": 1, "b": True, "c": "ok"}
+print("all true values:", all(checks.values()), "All values are truthy, so all() returns True.")
 # endregion
