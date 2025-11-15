@@ -140,3 +140,94 @@ print("Sum:", operations["sum"](5, 3))
 print("Subtract:", operations["subtract"](5, 3))
 print("Double:", operations["double"](5))
 # endregion
+
+# region Functional programming ------------------------
+'''Ejercicio 1
+Tienes una lista de temperaturas en grados Celsius. Convierte todas a Fahrenheit.
+(Fórmula: F = C * 9/5 + 32).'''
+celsius_temps = [0, 20, 37, 100]
+fahrenheit_temps = list(map(lambda c: c * 9/5 + 32, celsius_temps))
+print("Fahrenheit temperatures:", fahrenheit_temps)
+
+'''Ejercicio 2
+Dada una lista de nombres, agrega la frase "Hola, " al inicio de cada uno.'''
+names = ["Alice", "Bob", "Charlie"]
+greetings = list(map(lambda name: f"Hi, {name}!", names))
+print(greetings)
+
+'''Ejercicio 3
+De una lista de edades, quédate solo con las que representan adultos (18 años o más).'''
+ages = [12, 17, 18, 24, 30, 15]
+adults = list(filter(lambda age: age >= 18, ages))
+print("Adults:", adults)
+
+'''Ejercicio 4
+De una lista de frases, quédate solo con las que tengan más de 10 caracteres.'''
+phrases = ["short", "this is a long phrase", "medium length", "tiny"]
+long_phrases = list(filter(lambda phrase: len(phrase) > 10, phrases))
+print("Long phrases:", long_phrases)
+
+'''Ejercicio 5
+Calcula el total de una lista de precios usando reduce.'''
+from functools import reduce
+prices = [19.99, 5.49, 3.50, 12.00]
+total_price = reduce(lambda acc, y: acc + y, prices)
+print("Total price:", round(total_price, 2))
+
+'''Ejercicio 6
+Encuentra el número más grande en una lista usando reduce.'''
+numbers = [3, 56, 23, 89, 12, 45]
+max_number = reduce(lambda a, b: a if a > b else b, numbers)
+print("Max number:", max_number)
+
+#HERE ANOTHER USE CASE FOR REDUCE
+# Caso 3: Encontrar el producto más caro en la lista
+products = [
+    {"nombre": "laptop", "precio": 1200},
+    {"nombre": "mouse", "precio": 25},
+    {"nombre": "monitor", "precio": 300}
+]
+most_expensive = reduce(lambda acc, p: p if p["precio"] > acc["precio"] else acc, products)
+print(most_expensive)
+
+'''Ejercicio 7
+Dada una lista de palabras, quédate solo con las que empiezan con "P", y pásalas a minúsculas.'''
+words = ["Python", "java", "Perl", "C++", "PHP", "Ruby"]
+p_words_lower = list(map(lambda w: w.lower(), filter(lambda w: w.startswith("P"), words)))
+print("Words starting with P in lowercase:", p_words_lower)
+
+"""
+IN JAVASCRIPT
+const words = ["Python", "java", "Perl", "C++", "PHP", "Ruby"];
+const p_words_lower = words
+    .filter(w => w.startsWith("P"))
+    .map(w => w.toLowerCase());
+console.log("Words starting with P in lowercase:", p_words_lower);
+"""
+
+'''Ejercicio 8
+De una lista de productos con precios en USD, convierte los precios a MXN (17.5) y suma el total.'''
+products_usd = [
+    {"name": "laptop", "price": 1200},
+    {"name": "mouse", "price": 25},
+    {"name": "monitor", "price": 300}
+]
+products_mxn = list(map(lambda p: {"name": p["name"], "price": p["price"] * 17.5}, products_usd))
+total_mxn = reduce(lambda acc, p: acc + p["price"], products_mxn, 0)
+print("Total price in MXN:", round(total_mxn, 2))
+
+'''Ejercicio 9
+De una lista de edades, quédate solo con las de mayores de 18 y calcula el promedio.'''
+ages = [12, 17, 18, 24, 30, 15]
+adult_ages = list(filter(lambda age: age > 18, ages))
+average_age = reduce(lambda acc, age: acc + age, adult_ages, 0) / len(adult_ages) if adult_ages else 0
+print("Average age of adults:", round(average_age, 2))
+
+'''Ejercicio 10
+De una lista de números, quédate con los pares, multiplícalos por 2 y suma el total.'''
+numbers = [1, 2, 3, 4, 5, 6]
+even_numbers = list(filter(lambda x: x % 2 == 0, numbers))
+doubled_evens = list(map(lambda x: x * 2, even_numbers))
+total = reduce(lambda acc, x: acc + x, doubled_evens, 0)
+print("Total of doubled even numbers:", total)
+# endregion
