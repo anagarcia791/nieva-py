@@ -71,9 +71,7 @@ create_report("Ana", "Math", 85, 90, 78, age=20, city="Madrid")
 
 '''Ejercicio 5
 Define una función llamada presentar(nombre, edad, ciudad) que imprima un mensaje con esos datos.
-
 Después:
-
 Llama a la función pasando una lista con los valores y usa * para desempaquetarla.
 Llama a la función pasando un diccionario con los valores y usa ** para desempaquetarlo.'''
 
@@ -82,4 +80,63 @@ def introduce(name, age, city):
 
 introduce(*["Ana", 25, "Madrid"])
 introduce(**{"name": "Luis", "age": 30, "city": "Barcelona"})
+# endregion
+
+# region Lambda functions ------------------------
+'''Ejercicio 1
+Crea una lambda que reciba dos números y devuelva su suma.'''
+sum_lambda = lambda x, y: x + y
+print("Sum:", sum_lambda(9, 4))
+
+'''Ejercicio 2
+Crea una lambda que reciba un número y devuelva "Par" si lo es, o "Impar" en caso contrario.'''
+parity_lambda = lambda x: "Even" if x % 2 == 0 else "Odd"
+print("Parity:", parity_lambda(9))
+
+'''Ejercicio 3
+Crea una lambda que reciba un número y devuelva su cuadrado.'''
+square_lambda = lambda x: x ** 2
+print("Square:", square_lambda(6))
+
+'''Ejercicio 4
+Crea una lambda que reciba un string y lo devuelva al revés.'''
+reverse_lambda = lambda s: s[::-1]
+print("Reverse:", reverse_lambda("hello"))
+
+'''Ejercicio 5
+Crea una lambda que reciba dos números y devuelva el mayor de ellos.'''
+max_lambda = lambda x, y: x if x > y else y
+print("Max:", max_lambda(7, 10))
+
+'''Ejercicio 6
+Crea una lambda que reciba un string y devuelva su longitud.'''
+length_lambda = lambda s: len(s)
+print("Length:", length_lambda("hello"))
+
+'''Ejercicio 7
+Crea una lambda que no reciba argumentos y devuelva siempre "Hola desde lambda".'''
+hello_lambda = lambda: "Hi from lambda"
+print(hello_lambda())
+
+'''Ejercicio 8
+Crea una lambda que reciba un precio y devuelva el precio con IVA del 16%.'''
+iva_lambda = lambda price: price * 1.16
+print("Price with IVA:", round(iva_lambda(100), 2))
+
+'''Ejercicio 9
+Crea una lambda que reciba un texto y devuelva su último carácter.'''
+last_char_lambda = lambda text: text[-1] if text else ''
+print("Last character:", last_char_lambda("hello"))
+
+'''Ejercicio 10
+Crea un diccionario donde cada clave sea una operación ("suma", "resta", "doble") y los valores sean lambdas que la realicen.'''
+operations = {
+    "sum": lambda x, y: x + y,
+    "subtract": lambda x, y: x - y,
+    "double": lambda x: x * 2
+}
+print("Operations:")
+print("Sum:", operations["sum"](5, 3))
+print("Subtract:", operations["subtract"](5, 3))
+print("Double:", operations["double"](5))
 # endregion
