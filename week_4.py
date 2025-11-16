@@ -231,3 +231,82 @@ doubled_evens = list(map(lambda x: x * 2, even_numbers))
 total = reduce(lambda acc, x: acc + x, doubled_evens, 0)
 print("Total of doubled even numbers:", total)
 # endregion
+
+# region Functions as a values ------------------------
+'''Ejercicio 1
+Crea una función presentar() que devuelva "Hola, soy estudiante".
+Guárdala en una variable llamada f y ejecútala desde allí.'''
+def present():
+    return "Hi, I'm a student."
+
+f = present
+print(f())
+
+'''Ejercicio 2
+Define una función aplicar_dos_veces(func, valor) que reciba otra función y un valor, y devuelva el resultado de aplicar esa función dos veces seguidas.
+Prueba con str.upper y con len.'''
+
+def apply_twice(func, value):
+    return func(value)
+print("Apply twice str.upper:", apply_twice(str.upper, "hello"))
+print("Apply twice len:", apply_twice(len, "hello"))
+
+'''Ejercicio 3
+Crea una función crear_sumador(n) que devuelva otra función.
+La función interna debe sumar n al número que reciba.'''
+
+def create_adder(n):
+    def adder(x):
+        return x + n
+    return adder
+add_six = create_adder(6)
+print("Add six to 10:", add_six(10))
+
+# endregion
+
+# region List Comprehensions ------------------------
+'''Ejercicio 1
+Tienes una lista de precios: [120, 50, 200, 30, 400].
+Crea una nueva lista solo con los precios mayores o iguales a 100.'''
+prices = [120, 50, 200, 30, 400]
+filtered_prices = [price for price in prices if price >= 100]
+print("Filtered prices:", filtered_prices)
+
+'''Ejercicio 2
+Tienes un diccionario de estudiantes con sus notas:
+notas = {"Ana": 8, "Luis": 5, "Marta": 9, "Pedro": 6}
+Crea un nuevo diccionario con solo los estudiantes que aprobaron (nota >= 6).'''
+
+grades = {"Ana": 8, "Luis": 5, "Marta": 9, "Pedro": 6}
+passed_students = {name: grade for name, grade in grades.items() if grade >= 6}
+print("Passed students:", passed_students)
+
+'''Ejercicio 3
+Tienes la frase: "python es divertido y python es poderoso".
+Genera un set con las palabras únicas.'''
+phrase = "python es divertido y python es poderoso"
+unique_words = {word for word in phrase.split()}
+print("Unique words:", unique_words)
+
+'''Ejercicio 4
+Tienes la lista de productos con precios:
+productos = [("Pan", 20), ("Leche", 15), ("Carne", 80), ("Jugo", 10)]
+Crea un diccionario donde la clave sea el producto y el valor "caro" si cuesta más de 30, o "barato" en caso contrario.'''
+
+products = [("Pan", 20), ("Leche", 15), ("Carne", 80), ("Jugo", 10)]
+price_category = {name: ("expensive" if price > 30 else "cheap") for name, price in products}
+print("Price category:", price_category)
+
+
+'''Ejercicio 5
+Crea un diccionario con claves "user1", "user2", …, "user5" y valores con un número de id incremental (1001 a 1005).'''
+user_ids = {f"user{i}": 1000 + i for i in range(1, 6)}
+print("User IDs:", user_ids)
+
+'''Ejercicio 6
+Tienes la lista ["Ana", "Luis", "Marta"].
+Genera un set con todas las vocales que aparecen en esos nombres.'''
+names = ["Ana", "Luis", "Marta"]
+vowels = {char.lower() for name in names for char in name if char.lower() in 'aeiou'}
+print("Vowels in names:", vowels)
+# endregion
