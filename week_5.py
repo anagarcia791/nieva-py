@@ -1,5 +1,4 @@
 ## REMEMBER: This example is in Python.
-
 class GrupoMal:
     def __init__(self, nombre, miembros=[]):  # valor por defecto mutable (PELIGRO)
         self.nombre = nombre
@@ -81,15 +80,114 @@ class Group:
         else:
             self.miembros = miembros
 
-    def agregar(self, miembro):
+    def add(self, miembro):
         self.miembros.append(miembro)
 
 spanish_group = Group("Spanish Speakers")
-spanish_group.agregar("Carlos")
-spanish_group.agregar("María")
+spanish_group.add("Carlos")
+spanish_group.add("María")
 print("Spanish Members:", spanish_group.miembros)
 
 portuguese_group = Group("Portuguese Speakers", ["Ana", "João"])
 print("Portuguese Members:", portuguese_group.miembros)
 
+# endregion
+
+# region Attributes and methods ------------------------
+'''Ejercicio 1
+Crea una clase Persona con atributos nombre y edad.
+Crea dos objetos y muestra sus valores.'''
+
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+alice = Person("Alice", 30)
+bob = Person("Bob", 25)
+print("Alice:", vars(alice))
+print("Bob:", vars(bob))
+
+'''Ejercicio 2
+Crea una clase Producto con un atributo de clase impuesto = 0.16.
+Cada producto tiene nombre y precio.
+Muestra el precio con impuesto de dos productos distintos.'''
+class ProductWithTax:
+    impuesto = 0.16
+
+    def __init__(self, name, price):
+        self.name = name
+        self.price = price
+
+    def taxed_price(self):
+        return self.price * (1 + self.impuesto)
+
+tablet = ProductWithTax("Tablet", 1000)
+print("Tablet price with tax:", tablet.taxed_price())
+
+'''Ejercicio 3
+Crea una clase Rectangulo con atributos ancho y alto.
+Agrega un método area() que devuelva el área del rectángulo.
+Prueba el método con distintos valores.'''
+class Rectangle:
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+
+    def area(self):
+        return self.width * self.height
+
+rect1 = Rectangle(4, 5)
+print("Area rect1:", rect1.area())
+rect2 = Rectangle(10, 3)
+print("Area rect2:", rect2.area())
+
+
+'''Ejercicio 4
+Crea una clase Usuario que tenga un contador de instancias.
+Cada vez que se cree un nuevo usuario, el contador debe aumentar.
+Agrega un método de clase total_usuarios() que muestre cuántos usuarios hay.'''
+class UserWithCounter:
+    contador = 0
+
+    def __init__(self, username):
+        self.username = username
+        UserWithCounter.contador += 1
+
+    @classmethod
+    def total_usuarios(cls):
+        return cls.contador
+    
+user_1 = UserWithCounter("user1")
+user_2 = UserWithCounter("user2")
+print("Total users:", UserWithCounter.total_usuarios())
+user_3 = UserWithCounter("user3")
+print("Total users after adding user3:", UserWithCounter.total_usuarios()) 
+
+'''Ejercicio 5
+Crea una clase Matematica con un método estático es_par(n) que devuelva True si el número es par y False si es impar.
+Prueba con varios números.'''
+class Math:
+    @staticmethod
+    def is_even(n):
+        return n % 2 == 0
+
+print("Is 4 even?", Math.is_even(4))
+print("Is 7 even?", Math.is_even(7))
+
+'''Ejercicio 6
+Crea una clase Libro con atributos titulo y autor.
+Agrega un método especial __str__ para que al imprimir un libro aparezca:
+"Título: X | Autor: Y"'''
+
+class Book:
+    def __init__(self, title, author):
+        self.title = title
+        self.author = author
+
+    def __str__(self):
+        return f'Título: {self.title} | Autor: {self.author}'
+    
+book_1 = Book("1984", "George Orwell")
+print(book_1)  # Título: 1984 | Autor: George Orwell    
 # endregion
